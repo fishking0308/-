@@ -1,0 +1,54 @@
+
+import java.util.Scanner;
+public class kadai {
+
+	public static void main(String[] args) {
+		int i;
+		int j;
+		int enemy;
+		int[]jiki = new int[20];
+		int[][] enemyH = new int[20][20];
+		int isc = 1;
+
+		//自機の座標をいれる
+		System.out.println("自機の座標を左上ｘ左上ｙ高さ幅で入力してください");
+		Scanner sc1 = new Scanner(System.in);
+		for(i=0;i < 4;i++) {
+			jiki[i] = sc1.nextInt();
+		}
+
+ 		//敵機の数を入れる
+ 		Scanner sc2 = new Scanner(System.in);
+ 		enemy = sc2.nextInt();
+
+ 		//敵の座標を入れる
+ 		for(i=0;i < enemy;i++) {
+ 	 		Scanner sc3 = new Scanner(System.in);
+ 	 		for(j=0;j < 4;j++) {
+ 	 		 enemyH[i][j] = sc3.nextInt();
+ 		}
+ 	 		j = 0;
+ 		}
+ 		//あたり判定
+int x,y,w,h,tx,ty,tw,th;
+x = jiki[0];
+y = jiki[1];
+h = jiki[2];
+w = jiki[3];
+
+for(i=0;i<enemy;i++) {
+tx = enemyH[i][0];
+ty = enemyH[i][1];
+th = enemyH[i][2];
+tw = enemyH[i][3];
+
+if( ( x < tx + tw ) &&
+	       ( tx < x + w ) &&
+	       ( y < ty + th ) &&
+	       ( ty < y + h )) {
+	System.out.println("敵機"+ isc +"が当たり");
+	}
+isc++;
+	}
+		}
+			}
